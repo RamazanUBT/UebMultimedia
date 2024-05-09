@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  background: #aad5f6;
+}
+
+.slide-1 {
+  background: url("images/ForestLP.png");
+}
+
+.slide-2 {
+  background: url("images/SeaLP.png");
+}
+
+.slide-3 {
+  background: url("images/SidelakeLP.png");
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.caption {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.caption h1 {
+  color: white;
+  opacity: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.caption button {
+  background-color: #7b844d;
+  border: none;
+  border-radius: 10px;
+  width: 250px;
+  height: 50px;
+  color: white;
+  font-size: 28px;
+  opacity: 70%;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 10px;
+  transform: background 500ms;
+}
+
+.arrow img {
+  width: 40px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.l {
+  left: 0;
+}
+
+.r {
+  right: 0;
+}
