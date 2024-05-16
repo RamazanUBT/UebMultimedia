@@ -50,7 +50,7 @@
   font-size: 80px;
 }
 
-.caption button {
+.caption a {
   background-color: #7b844d;
   border: none;
   border-radius: 10px;
@@ -59,9 +59,13 @@
   color: white;
   font-size: 28px;
   opacity: 70%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button:hover {
+a:hover {
   cursor: pointer;
   opacity: 100%;
 }
