@@ -25,6 +25,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px;
+  text-decoration: none;
 }
 
 a:hover {
@@ -33,7 +35,8 @@ a:hover {
 
 h1 {
   color: rgba(256, 256, 256, 0.2);
-  font-size: 40px;
+  margin-left: -9rem;
+  font-size: 50px;
 }
 
 .audiobtn {
@@ -57,4 +60,22 @@ h1 {
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.videosdiv {
+  display: flex;
+  justify-content: space-between;
+  margin: -5rem 10rem;
+}
+
+.videosdiv div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videosdiv div p {
+  color: white;
+  font-size: 38px;
+  font-weight: bold;
 }

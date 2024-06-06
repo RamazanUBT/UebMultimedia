@@ -8,13 +8,81 @@
   </head>
   <body>
     <div class="header">
-      <a>Go Back</a>
+      <a href="/UebMultimedia/Menu.html">Go Back</a>
       <h1>FOREST</h1>
       <div></div>
     </div>
     <div class="audiobtn">
-      <button>Play Audio</button>
+      <button id="audioButton" onclick="toggleRandomAudio()">Play Audio</button>
+      <audio id="myAudio">
+        <source
+          id="audioSource"
+          src=""
+          type="audio/mpeg"
+        />
+      </audio>
     </div>
-    <div class="videosdiv"></div>
+    <div class="videosdiv">
+      <iframe
+        width="500"
+        height="280"
+        src="https://www.youtube.com/embed/xNN7iTA57jM?si=InNddQ66NGECfWQ8"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <div>
+        <p>Suggested videos</p>
+      </div>
+
+      <iframe
+        width="500"
+        height="280"
+        src="https://www.youtube.com/embed/wKnS8VPxpHI?si=d3QeNAeXzmCcROfA"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <script>
+        const audioFiles = [
+            'forestAudios/forestsound1.mp3',
+            'forestAudios/forestsound2.mp3',
+            'forestAudios/forestsound3.mp3',
+            'forestAudios/forestsound4.mp3',
+        ];
+
+        let isPlaying = false;
+        let currentAudio = '';
+
+        function toggleRandomAudio() {
+            const audio = document.getElementById("myAudio");
+            const audioSource = document.getElementById("audioSource");
+            const button = document.getElementById("audioButton");
+
+            if(isPlaying){
+              audio.pause();
+              button.textContent = "Play Random Audio";
+              isPlaying = false;
+            } else {
+              const randomIndex = Math.floor(Math.random() * audioFiles.length);
+                const randomAudio = audioFiles[randomIndex];
+                if (currentAudio !== randomAudio) {
+                    audioSource.src = randomAudio;
+                    currentAudio = randomAudio;
+                    audio.load();
+                }
+                audio.play();
+                button.textContent = "Pause Audio";
+                isPlaying = true;
+            }
+        }
+    </script>
+    </script>
   </body>
 </html>
