@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forest</title>
     <link rel="stylesheet" href="forest.css" />
+    <script src="Forest.js"></script>
   </head>
   <body>
     <div class="header">
@@ -15,11 +16,7 @@
     <div class="audiobtn">
       <button id="audioButton" onclick="toggleRandomAudio()">Play Audio</button>
       <audio id="myAudio">
-        <source
-          id="audioSource"
-          src=""
-          type="audio/mpeg"
-        />
+        <source id="audioSource" src="" type="audio/mpeg" />
       </audio>
     </div>
     <div class="videosdiv">
@@ -48,41 +45,5 @@
         allowfullscreen
       ></iframe>
     </div>
-
-    <script>
-        const audioFiles = [
-            'forestAudios/forestsound1.mp3',
-            'forestAudios/forestsound2.mp3',
-            'forestAudios/forestsound3.mp3',
-            'forestAudios/forestsound4.mp3',
-        ];
-
-        let isPlaying = false;
-        let currentAudio = '';
-
-        function toggleRandomAudio() {
-            const audio = document.getElementById("myAudio");
-            const audioSource = document.getElementById("audioSource");
-            const button = document.getElementById("audioButton");
-
-            if(isPlaying){
-              audio.pause();
-              button.textContent = "Play Random Audio";
-              isPlaying = false;
-            } else {
-              const randomIndex = Math.floor(Math.random() * audioFiles.length);
-                const randomAudio = audioFiles[randomIndex];
-                if (currentAudio !== randomAudio) {
-                    audioSource.src = randomAudio;
-                    currentAudio = randomAudio;
-                    audio.load();
-                }
-                audio.play();
-                button.textContent = "Pause Audio";
-                isPlaying = true;
-            }
-        }
-    </script>
-    </script>
   </body>
 </html>
