@@ -9,9 +9,9 @@ document.getElementById('app').appendChild(app.view);
 
 // Array of slide objects with image and caption
 const slides = [
-    { image: 'images/ForestLP.png', caption: 'Nature Sounds Generator' },
-    { image: 'images/SeaLP.png', caption: '"The waves of the sea help me get back to me." - Jill Davis.' },
-    { image: 'images/SidelakeLP.png', caption: 'Time wasted at the lake is time well spent' }
+    { image: 'images/ForestLP.png', caption: 'Nature Sounds Generator', buttonColor: '#7b844d' },
+    { image: 'images/SeaLP.png', caption: '"The waves of the sea help me get back to me." - Jill Davis.', buttonColor: '#aad5f6' },
+    { image: 'images/SidelakeLP.png', caption: 'Time wasted at the lake is time well spent', buttonColor: '#d2b48c' }
 ];
 
 let currentSlideIndex = 0;
@@ -51,13 +51,13 @@ let isTransitioning = false;
 
 // Function to handle the transition between slides
 function transitionToSlide(nextIndex) {
-    if (isTransitioning) return; // Prevent overlapping transitions
+    if (isTransitioning) return;
     isTransitioning = true;
 
     const currentSlide = slideSprites[currentSlideIndex];
     const nextSlide = slideSprites[nextIndex];
-    const transitionSpeed = 0.002; // Adjust the speed of the fade effect
-    const delayBetweenSlides = 6000; // Time to wait between slides in milliseconds
+    const transitionSpeed = 0.002; 
+    const delayBetweenSlides = 7000; 
 
     app.ticker.add(fadeOutCurrentSlide);
 
@@ -69,6 +69,7 @@ function transitionToSlide(nextIndex) {
             app.ticker.add(fadeInNextSlide);
             currentSlideIndex = nextIndex;
             updateCaption(currentSlideIndex);
+            updateButtonColor(slides[currentSlideIndex].buttonColor);
         }
     }
 
@@ -77,12 +78,31 @@ function transitionToSlide(nextIndex) {
         if (nextSlide.alpha >= 1) {
             nextSlide.alpha = 1;
             app.ticker.remove(fadeInNextSlide);
-            isTransitioning = false; // Allow new transitions
+            isTransitioning = false; 
             setTimeout(() => { app.ticker.add(nextSlideTick) }, delayBetweenSlides);
         }
     }
 }
 
-// Automatically transition to the next slide every 4 seconds plus transition time
+
 const nextSlideTick = () => nextSlide();
-setTimeout(() => { app.ticker.add(nextSlideTick) }, 6000);
+setTimeout(() => { app.ticker.add(nextSlideTick) }, 7000);
+
+//Change the color of the "Explore" button
+function updateButtonColor(color) {
+    const exploreButton = document.querySelector('.caption a');
+    exploreButton.style.backgroundColor = color;
+}
+
+// Implementing hover effect for the "Explore" button
+const exploreButton = document.querySelector('.caption a');
+
+exploreButton.addEventListener('mouseover', () => {
+    exploreButton.style.opacity = '0.8';
+    TweenMax.to(exploreButton, 0.3, { scaleX: 0.9, scaleY: 0.9, ease: Power2.easeOut });
+});
+
+exploreButton.addEventListener('mouseout', () => {
+    exploreButton.style.opacity = '1';
+    TweenMax.to(exploreButton, 0.3, { scaleX: 1, scaleY: 1, ease: Power2.easeOut });
+});
