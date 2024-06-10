@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waterfall</title>
+    <link rel="stylesheet" href="waterfall.css" />
+    <script src="waterfall.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/UebMultimedia/Menu.html">Go Back</a>
+      <h1>Waterfall</h1>
+      <div></div>
+    </div>
+    <div class="audiobtn">
+      <button id="audioButton" onclick="toggleRandomAudio()">Play Audio</button>
+      <audio id="myAudio">
+        <source id="audioSource" src="" type="audio/mpeg" />
+      </audio>
+    </div>
+    <div class="videosdiv">
+      <iframe
+        width="500"
+        height="280"
+        src="https://www.youtube.com/embed/FF2bhR7s3VY?si=Y2aT6cq2PMVv_nFi" 
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <div>
+        <p>Suggested videos</p>
+      </div>
+
+      <iframe
+        width="500"
+        height="280"
+        src="https://www.youtube.com/embed/7pyscDDGca8?si=HGPBSfehzcMNdNCb" 
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </body>
+</html>
