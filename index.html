@@ -1,95 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nature Sounds Generator</title>
     <link rel="stylesheet" href="index.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+        body { margin: 0; padding: 0; overflow: hidden; }
+        #app { width: 100vw; height: 100vh; position: relative; }
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; z-index: 2; }
+        .arrow.l { left: 10px; }
+        .arrow.r { right: 10px; }
+        .caption { position: absolute; bottom: 50px; left: 50px; color: white; z-index: 2; }
+        .caption h1 { font-size: 2rem; }
+        .caption a { color: white; text-decoration: none; }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="arrow l" onclick="prev()">
-        <img src="images/LeftArrow.png" alt="left" />
-      </div>
-      <div class="slide slide-1">
-        <div class="caption">
-          <h1>Nature Sounds Generator</h1>
-          <a href="/UebMultimedia/Menu.html"> Explore -> </a>
+</head>
+<body>
+    <div id="app">
+        <div class="arrow l" onclick="prevSlide()">
+            <img src="images/LeftArrow.png" alt="left" />
         </div>
-      </div>
-      <div class="slide slide-2">
-        <div class="caption">
-          <h1 style="color: gray">
-            "The waves of the sea help me get back to me." - Jill Davis.
-          </h1>
+        <div class="arrow r" onclick="nextSlide()">
+            <img src="images/RightArrow.png" alt="right" />
         </div>
-      </div>
-      <div class="slide slide-3">
-        <div class="caption">
-          <h1>Time wasted at the lake is time well spent</h1>
+        <div class="caption" id="caption">
+            <h1>Nature Sounds Generator</h1>
+            <a href="/UebMultimedia/Menu.html"> Explore -> </a>
         </div>
-      </div>
-      <div class="arrow r" onclick="next()">
-        <img src="images/RightArrow.png" alt="right" />
-      </div>
     </div>
-
-    <script>
-      let slide = document.querySelectorAll(".slide");
-      var current = 0;
-
-      function cls() {
-        for (let i = 0; i < slide.length; i++) {
-          slide[i].style.display = "none";
-        }
-      }
-
-      function next() {
-        cls();
-        if (current === slide.length - 1) current = -1;
-        current++;
-
-        slide[current].style.display = "block";
-        slide[current].style.opacity = 0.4;
-
-        var x = 0.4;
-        var intX = setInterval(function () {
-          x += 0.1;
-          slide[current].style.opacity = x;
-          if (x >= 1) {
-            clearInterval(intX);
-            x = 0.4;
-          }
-        }, 100);
-      }
-
-      function prev() {
-        cls();
-        if (current === 0) current = slide.length;
-        current--;
-
-        slide[current].style.display = "block";
-        slide[current].style.opacity = 0.4;
-
-        var x = 0.4;
-        var intX = setInterval(function () {
-          x += 0.1;
-          slide[current].style.opacity = x;
-          if (x >= 1) {
-            clearInterval(intX);
-            x = 0.4;
-          }
-        }, 100);
-      }
-
-      function start() {
-        cls();
-        slide[current].style.display = "block";
-      }
-      start();
-    </script>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.0.0/pixi.min.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>

@@ -9,27 +9,6 @@
   background: #aad5f6;
 }
 
-.slide-1 {
-  background: url("images/ForestLP.png");
-}
-
-.slide-2 {
-  background: url("images/SeaLP.png");
-}
-
-.slide-3 {
-  background: url("images/SidelakeLP.png");
-}
-
-.slide {
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow-x: hidden;
-}
-
 .caption {
   width: 100%;
   position: absolute;
@@ -79,7 +58,7 @@ a:hover {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   padding: 10px;
-  transform: background 500ms;
+  transition: background 500ms;
 }
 
 .arrow img {
